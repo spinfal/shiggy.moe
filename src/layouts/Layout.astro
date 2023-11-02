@@ -1,0 +1,145 @@
+---
+const meta = {
+    title: "shiggyverse",
+    description: "read if cute",
+    image: "/images/shiggy-logo.gif",
+    url: "https://shiggy.moe",
+    robots: "index, follow"
+}
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="title" content={meta.title} />
+        <meta name="description" content={meta.description} />
+        <meta name="robots" content={meta.robots} />
+        <meta name="language" content="English" />
+        <meta name="author" content="Spinfal" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="theme-color" content="#d4aa70" />
+
+        <meta name="og:type" content="website" />
+        <meta name="og:url" content={meta.url} />
+        <meta name="og:title" content={meta.title} />
+        <meta name="og:description" content={meta.description} />
+        <meta name="og:image" content={meta.image} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={meta.url} />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
+        <meta name="twitter:image" content={meta.image} />
+		<link rel="icon" type="image/png" href="favicon.png" />
+		<title>{meta.title}</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="/" class="nav-header">
+					<span><span style="color: var(--shiggy-orange)">shiggy</span>.moe</span>
+				</a>
+				<a href="https://vencord.dev" target="_blank" class="nav-header">
+					<span style="color: var(--color-text-grayed)">also check out <span style="color: var(--shiggy-orange)">vencord</span>.dev</span>
+				</a>
+			</nav>
+		</header>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--font-family: system-ui, sans-serif;
+		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+		--font-size-xl: clamp(2rem, 1.75vw + 1.35rem, 2.75rem);
+
+		--color-text: #ececec;
+		--color-text-grayed: rgba(236, 236, 236, 0.5);
+		--color-link: #f6b37e;
+		--color-link-visited: #f28e3e;
+		--color-bg: #282828;
+		--color-bg-2: #202020;
+		--color-bg-3: #e0d1cc;
+		--shiggy-orange: #d4aa70;
+		--success-green: #3CB371;
+
+		--content-max-width: 90ch;
+		--nav-height: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+	}
+
+	h1 {
+		font-size: var(--font-size-xl);
+	}
+
+	a {
+		color: var(--color-link);
+	}
+
+	a:visited {
+		color: var(--color-link-visited);
+	}
+
+	button {
+		border: none;
+		color: var(--shiggy-orange);
+		border: 2px solid var(--shiggy-orange);
+		transition:
+			color 0.2s,
+			background-color 0.2s;
+		background-color: transparent;
+		padding: 0.4rem 0.8rem;
+		border-radius: 0.4rem;
+		font-family: var(--font-family);
+		font-size: var(--font-size-base);
+		font-weight: bold;
+		cursor: pointer;
+	}
+
+	button:hover {
+		background-color: var(--shiggy-orange);
+		color: white;
+	}
+</style>
+
+<style>
+	html {
+		font-family: var(--font-family);
+		font-size: var(--font-size-base);
+		color: var(--color-text);
+		background-color: var(--color-bg);
+	}
+
+	body {
+		margin: 0;
+	}
+
+	header {
+		background: var(--color-bg-2);
+	}
+
+	nav {
+		max-width: var(--content-max-width);
+		height: var(--nav-height);
+		margin: auto;
+		padding-inline: 1rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.nav-header,
+	.nav-header:visited {
+		font-size: var(--font-size-base);
+		font-weight: bold;
+		color: inherit;
+		text-decoration: none;
+		display: flex;
+		justify-content: space-between;
+	}
+</style>

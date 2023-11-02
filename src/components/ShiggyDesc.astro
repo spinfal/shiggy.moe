@@ -1,0 +1,72 @@
+---
+const links = [
+    {
+        href: "https://shiggy.fun",
+        text: "shiggy.fun"
+    },
+    {
+        href: "https://shig.gy",
+        text: "shig.gy"
+    },
+    {
+        href: "https://shigmail.lol",
+        text: "shigmail.lol"
+    }
+];
+---
+
+<h1>Shiggy :3</h1>
+<p>
+	Shiggy.moe is an adorable and easy to use email service + file hoster. But this isn't our only domain! Check out our other ones:
+</p>
+<ul>
+    {links.map(i => {
+        return <li><a href={i.href} target="_blank">{i.text}</a></li>
+    })}
+	<li>and most likely more to come :3</li>
+</ul>
+<p>
+	If you'd like to donate to us, you find our address below ♡. After donation, please <a href="https://discord.shiggy.fun" target="_blank">join our Discord</a> and provide proof. You'd be given stuff, cool stuff even. <span style="color: var(--color-text-grayed)">Because of country restrictions, you can only donate to us through cryptocurrency (TRON - TRC20).</span>
+</p>
+<pre id="tron-address" class="tron-address">
+THznREvGrzPa9D6CG8krsvswCChBXiDDTc
+</pre>
+
+<script>
+	const tronAddressElement = document.getElementById("tron-address");
+	if (tronAddressElement) {
+		tronAddressElement.addEventListener("click", () => {
+			const copyText = "THznREvGrzPa9D6CG8krsvswCChBXiDDTc";
+			navigator.clipboard.writeText(copyText);
+			tronAddressElement.style.animation = ""; // remove the animation
+			setTimeout(() => { // set the animation after a delay
+				tronAddressElement.style.border = "1px solid var(--success-green)";
+				tronAddressElement.style.animation = "fade 2s ease-in forwards";
+			}, 0);
+		});
+	}
+</script>
+
+<style>
+	h1 {
+		margin: 0;
+		margin-block-start: 2rem;
+	}
+
+	.tron-address {
+		background-color: var(--color-bg-2);
+		padding: 5px 10px 5px 10px;
+		border-radius: 5px;
+		color: var(--color-text);
+		font-family: var(--font-family);
+		white-space: nowrap;
+		display: inline-block;
+		cursor: pointer;
+		border: 1px solid transparent;
+	}
+
+	@keyframes fade {
+		0% { border-color: var(--success-green); }
+		100% { border-color: transparent; }
+	}
+</style>

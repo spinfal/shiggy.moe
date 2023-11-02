@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ShiggyDesc from "../components/ShiggyDesc.astro";
+
+const buttons = [
+    {
+        "href": "https://host.shiggy.moe",
+        "text": "File Host",
+        "style": ""
+    },
+    {
+        "href": "https://box.shiggy.moe",
+        "text": "Email Login",
+        "style": "margin-left: auto;"
+    }
+];
+---
+
+<Layout>
+    <main>
+        <div class="main-layout">
+            <div>
+                <ShiggyDesc />
+                <div style="display: flex;">
+                    {buttons.map(i => {
+                        return <a href={i.href} target="_blank" style={i.style}><button>{i.text}</button></a>
+                    })}
+                </div>
+            </div>
+            <img src="https://shiggy.fun/api/v3/random" alt="random shiggy from our database" style="border-radius: 3%;" />
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        margin: auto;
+        padding: 1em;
+        max-width: var(--content-max-width);
+    }
+
+    .main-layout {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, max-content));
+    }
+
+    .main-layout img {
+        width: 100%;
+        max-width: 26rem;
+    }
+
+    button[type="submit"] {
+        margin-block-start: 1rem;
+    }
+</style>
